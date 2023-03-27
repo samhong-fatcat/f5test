@@ -4,16 +4,16 @@
   connection: local
 
   vars:
-     provider:
-       password: admin
-       server: 1.1.1.1
-       user: admin
-       validate_certs: no
-       server_port: 443
+    provider:
+        password: admin
+        server: 1.1.1.1
+        user: admin
+        validate_certs: no
+        server_port: 443
 
   tasks:
   
-     - name: Create a pool
+  - name: Create a pool
        bigip_pool:
          provider: "{{ provider }}"
          lb_method: ratio-member
@@ -21,7 +21,7 @@
          slow_ramp_time: 120
        delegate_to: localhost
 
-     - name: Add members to pool
+  - name: Add members to pool
        bigip_pool_member:
          provider: "{{ provider }}"
          description: "webserver {{ item.name }}"
@@ -36,7 +36,7 @@
            name: web02
        delegate_to: localhost
 
-     - name: Create a VIP
+  - name: Create a VIP
        bigip_virtual_server:
          provider: "{{ provider }}"
          description: foo-vip
