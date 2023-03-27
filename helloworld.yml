@@ -3,13 +3,13 @@
   hosts: all
   connection: local
 
-     vars:
-       provider:
-         password: admin
-         server: 1.1.1.1
-         user: admin
-         validate_certs: no
-         server_port: 443
+  vars:
+     provider:
+       password: admin
+       server: 1.1.1.1
+       user: admin
+       validate_certs: no
+       server_port: 443
 
   tasks:
   
