@@ -5,7 +5,7 @@
 
   vars:
      provider:
-       password: admin
+       password: Wgrd_123
        server: 1.1.1.1
        user: admin
        validate_certs: no
