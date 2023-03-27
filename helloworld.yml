@@ -4,16 +4,16 @@
   connection: local
   gather_facts: no
 
-tasks:
+  tasks:
 
-  - name: COLLECT BIG-IP FACTS
-    bigip_device_info:
-      gather_subset:
-       - system-info
-      provider:
-        server: "{{private_ip}}"
-        user: "{{ansible_user}}"
-        password: "{{ansible_ssh_pass}}"
-        server_port: 8443
-        validate_certs: no
-    register: device_facts
+    - name: COLLECT BIG-IP FACTS
+      bigip_device_info:
+        gather_subset:
+        - system-info
+        provider:
+          server: "{{private_ip}}"
+          user: "{{ansible_user}}"
+          password: "{{ansible_ssh_pass}}"
+          server_port: 8443
+          validate_certs: no
+      register: device_facts
