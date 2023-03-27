@@ -1,21 +1,19 @@
 ---
-- name: Create a VIP, pool and pool members
-  hosts: all
+- name: GRAB F5 FACTS
+  hosts: f5
   connection: local
-  vars:
-    provider:
-        password: admin
-        server: 1.1.1.1
-        user: admin
+  gather_facts: no
+
+tasks:
+
+  - name: COLLECT BIG-IP FACTS
+    bigip_device_info:
+      gather_subset:
+       - system-info
+      provider:
+        server: "{{private_ip}}"
+        user: "{{ansible_user}}"
+        password: "{{ansible_ssh_pass}}"
+        server_port: 8443
         validate_certs: no
-        server_port: 443
-
-  tasks:
-    - name: Create a pool
-        bigip_pool:
-          provider: "{{ provider }}"
-          lb_method: ratio-member
-          name: web
-          slow_ramp_time: 120
-        delegate_to: localhost
-
+    register: device_facts
