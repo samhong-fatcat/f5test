@@ -11,7 +11,7 @@
         gather_subset:
           - system-info
         provider:
-          server: "{{server}}"
+          server: 192.168.20.231
           user: "{{ansible_user}}"
           server_port: 443
           validate_certs: no
