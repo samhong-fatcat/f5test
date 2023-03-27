@@ -29,5 +29,7 @@
       debug:
         var: device_facts['system_info']['product_version']
 
-
+    - name: DISPLAY WIDE IP
+      debug:
+        var: device_facts['gtm_wide_ips']['pool_lb_mode']
 
