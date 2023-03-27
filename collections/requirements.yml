@@ -1,5 +1,8 @@
 ---
 collections:
-  -name: f5networks.f5_modules
-  -name: f5networks.f5_bigip
-  -name: f5networks.f5os
+  - name: ansible.netcommon
+    version: ">=2.0.0"
+  - name: f5networks.f5_bigip
+    source: https://github.com/F5Networks/f5-ansible-bigip#ansible_collections/f5networks/f5_bigip
+    type: git
+    version: devel
