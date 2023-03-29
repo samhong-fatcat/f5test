@@ -28,7 +28,7 @@
         type: a
         server_name: pjdc-server
         virtual_server: test-pjdc-1
-        state: disable
+        state: disabled
         ratio: 50
         provider:
           server: 192.168.20.231
