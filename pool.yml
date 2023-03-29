@@ -1,0 +1,37 @@
+---
+- name: GRAB F5 FACTS
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: Collect GTM Wide IP information xxxxxxxxxxxx
+      bigip_device_info:
+        gather_subset:
+          - gtm-pools
+        provider:
+          server: 192.168.20.231
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
+      register: f5_subset
+
+    - name: PRINT Gather Subsets ALL
+      debug:
+        var: f5_subset
+
+
+    -name: Disable pool member
+    bigip_gtm_pool_member:
+      pool: orig-1n-maya.maybank2u.com.my_pool
+      type: a
+      virtual_server: pjdc-server
+      provider:
+        server: 192.168.20.231
+        user: "{{ansible_user}}"
+        server_port: 443
+        validate_certs: no
+      state: disabled
+      delegate_to: localhost
+
