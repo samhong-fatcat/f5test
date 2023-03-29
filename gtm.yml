@@ -43,7 +43,6 @@
           user: "{{ansible_user}}"
           server_port: 443
           validate_certs: no
-      delegate_to: localhost
       register: f5_subset
 
     - name: PRINT Gather Subsets ALL
