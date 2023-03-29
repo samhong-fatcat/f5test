@@ -34,10 +34,10 @@
       debug:
         var: device_facts['gtm_wide_ips']['pool_lb_mode']
 
-    - name: Collect all Big-IP information xxxxxxxxxxxx
+    - name: Collect GTM Wide IP information xxxxxxxxxxxx
       bigip_device_info:
         gather_subset:
-          - all
+          - gtm-wide-ips
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
