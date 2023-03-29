@@ -37,7 +37,7 @@
     - name: Collect GTM Wide IP information xxxxxxxxxxxx
       bigip_device_info:
         gather_subset:
-          - gtm-wide-ips
+          - gtm-pools
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
