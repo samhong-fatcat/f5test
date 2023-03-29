@@ -28,8 +28,8 @@
         type: a
         server_name: pjdc-server
         virtual_server: test-pjdc-1
-        state: enabled
-        ratio: 20
+        state: disable
+        ratio: 50
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
