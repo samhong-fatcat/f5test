@@ -9,7 +9,7 @@
     - name: COLLECT BIG-IP FACTS
       bigip_device_info:
         gather_subset:
-          - system-info
+          - all
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
