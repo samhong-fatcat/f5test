@@ -23,15 +23,15 @@
 
 
     - name: Disable pool member
-    bigip_gtm_pool_member:
-      pool: orig-1n-maya.maybank2u.com.my_pool
-      type: a
-      virtual_server: pjdc-server
-      provider:
-        server: 192.168.20.231
-        user: "{{ansible_user}}"
-        server_port: 443
-        validate_certs: no
-      state: disabled
+      bigip_gtm_pool_member:
+        pool: orig-1n-maya.maybank2u.com.my_pool
+        type: a
+        virtual_server: pjdc-server
+        state: disabled
+        provider:
+          server: 192.168.20.231
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
       delegate_to: localhost
 
