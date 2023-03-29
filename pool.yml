@@ -22,7 +22,7 @@
         var: f5_subset
 
 
-    -name: Disable pool member
+    - name: Disable pool member
     bigip_gtm_pool_member:
       pool: orig-1n-maya.maybank2u.com.my_pool
       type: a
