@@ -9,14 +9,13 @@
     - name: COLLECT BIG-IP FACTS
       bigip_device_info:
         gather_subset:
-          - vlans
-          - monitors
+          - system-info
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
           server_port: 443
           validate_certs: no
-      delegate_to: localhost
+      register: device_facts
         
 
     - name: DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION
@@ -34,4 +33,16 @@
     - name: DISPLAY WIDE IP
       debug:
         var: device_facts['gtm_wide_ips']['pool_lb_mode']
+
+    - name: Collect all Big-IP information xxxxxxxxxxxx
+      bigip_device_info:
+        gather_subset:
+          - all
+        provider:
+          server: 192.168.20.231
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
+      delegate_to: localhost
+
 
