@@ -6,22 +6,6 @@
 
   tasks:
 
-    - name: Collect GTM Wide IP information xxxxxxxxxxxx
-      bigip_device_info:
-        gather_subset:
-          - gtm-pools
-        provider:
-          server: 192.168.20.231
-          user: "{{ansible_user}}"
-          server_port: 443
-          validate_certs: no
-      register: f5_subset
-
-    - name: PRINT Gather Subsets ALL
-      debug:
-        var: f5_subset
-
-
     - name: Disable pool member
       bigip_gtm_pool_member:
         pool: orig-1n-maya.maybank2u.com.my_pool
@@ -29,7 +13,6 @@
         server_name: pjdc-server
         virtual_server: test-pjdc-1
         state: disabled
-        ratio: 50
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
