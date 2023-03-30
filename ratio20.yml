@@ -6,13 +6,13 @@
 
   tasks:
 
-    - name: Change pool member pjdc-1 ratio 50 
+    - name: Change pool member pjdc-1 ratio 20 
       bigip_gtm_pool_member:
         pool: orig-1n-maya.maybank2u.com.my_pool
         type: a
         server_name: pjdc-server
         virtual_server: test-pjdc-1
-        ratio: 50
+        ratio: 20
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
