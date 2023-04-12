@@ -1,0 +1,18 @@
+---
+- name: LTM node web01
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: Disable pool member
+      bigip_:
+        name: web01
+        provider:
+          server: 192.168.20.231
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
+      delegate_to: localhost
+
