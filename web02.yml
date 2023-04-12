@@ -10,6 +10,7 @@
       bigip_pool_member:
         pool: web
         host: 10.10.10.20
+        port: 80
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
