@@ -6,11 +6,13 @@
 
   tasks:
 
-    - name: Enable or disable pool member
+    - name: Enabled or disable pool member
       bigip_pool_member:
-        pool: web
-        host: 10.10.10.20
-        port: 80
+        state: "{{state_1}}"
+        name: "web02"
+        pool: "web"
+        port: "80"
+        address: "10.10.10.20"
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
