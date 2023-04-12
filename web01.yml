@@ -8,6 +8,7 @@
 
     - name: Enabled or disable pool member
       bigip_pool_member:
+        state: "forced_offline"
         name: "web01"
         pool: "web"
         port: "80"
