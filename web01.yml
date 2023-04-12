@@ -6,9 +6,10 @@
 
   tasks:
 
-    - name: Disable pool member
-      bigip_:
-        name: web01
+    - name: Enabled or disable pool member
+      bigip_pool_member:
+        pool: web
+        host: 10.10.10.10
         provider:
           server: 192.168.20.231
           user: "{{ansible_user}}"
