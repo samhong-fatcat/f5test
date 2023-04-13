@@ -1,0 +1,22 @@
+---
+- name: cinderella GTM ratio
+  hosts: all
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: Change pool member pjdc-1 ratio dynamic 
+      bigip_gtm_pool_member:
+        pool: orig-1n-maya.maybank2u.com.my_pool
+        type: a
+        server_name: pjdc-server
+        virtual_server: Cinderella
+        ratio: "{{dynamicratio}}"
+        provider:
+          server: 192.168.20.231
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
+      delegate_to: localhost
+
