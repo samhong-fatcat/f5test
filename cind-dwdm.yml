@@ -6,15 +6,43 @@
 
   tasks:
 
-    - name: Enabled or disable pool member
+    - name: Enabled or disable pool member pjdc - cinderella dwdm
       bigip_pool_member:
         state: "{{state_1}}"
+        name: "pjdc_dwdm"
+        pool: "web"
+        port: "80"
+        address: "10.10.10.103"
+        provider:
+          server: 192.168.20.232
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
+      delegate_to: localhost
+
+    - name: Enabled or disable pool member cinderella - cinderella dwdm
+      bigip_pool_member:
+        state: "{{state_2}}"
         name: "cinderella_dwdm"
         pool: "web"
         port: "80"
-        address: "10.10.10.101"
+        address: "10.10.10.104"
         provider:
-          server: 192.168.20.231
+          server: 192.168.20.232
+          user: "{{ansible_user}}"
+          server_port: 443
+          validate_certs: no
+      delegate_to: localhost
+
+    - name: Enabled or disable pool member ntt - cinderella dwdm
+      bigip_pool_member:
+        state: "{{state_3}}"
+        name: "ntt_dwdm"
+        pool: "web"
+        port: "80"
+        address: "10.10.10.105"
+        provider:
+          server: 192.168.20.232
           user: "{{ansible_user}}"
           server_port: 443
           validate_certs: no
